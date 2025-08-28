@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Nector 24x - ताजा खबरें 24x7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Hind', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .hindi-text {
+            font-family: 'Hind', sans-serif;
+        }
+        
+        .news-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .breaking-news {
+            background: linear-gradient(90deg, #dc2626 0%, #b91c1c 100%);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .marquee {
+            animation: marquee 30s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .loading-bar {
+            animation: loading 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes loading {
+            0%, 100% { width: 0%; }
+            50% { width: 100%; }
+        }
+        
+        .category-tab {
+            transition: all 0.3s ease;
+        }
+        
+        .category-tab:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        .weather-card {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            animation: weatherGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes weatherGlow {
+            from { box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5); }
+            to { box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.7); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header Section -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-newspaper text-white text-2xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-gray-800 hindi-text">न्यूज़ नेक्टर <span class="text-orange-500">24x</span></h1>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-orange-500 font-semibold hindi-text">मुखपृष्ठ</a>
+                    <a href="#news" class="text-gray-700 hover:text-orange-500 font-semibold hindi-text">ताजा खबरें</a>
+                    <a href="#categories" class="text-gray-700 hover:text-orange-500 font-semibold hindi-text">श्रेणियाँ</a>
+                    <a href="#video" class="text-gray-700 hover:text-orange-500 font-semibold hindi-text">वीडियो</a>
+                    <a href="#contact" class="text-gray-700 hover:text-orange-500 font-semibold hindi-text">संपर्क</a>
+                </nav>
+
+                <!-- Search and Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <div class="relative hidden md:block">
+                        <input type="text" placeholder="खोजें..." class="px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-orange-300">
+                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                    </div>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breaking News Ticker -->
+    <div class="bg-red-600 text-white py-2 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center">
+                <span class="bg-white text-red-600 px-3 py-1 rounded font-bold mr-4 hindi-text">ब्रेकिंग न्यूज़</span>
+                <div class="overflow-hidden">
+                    <div class="marquee whitespace-nowrap">
+                        <span class="inline-block hindi-text">🇮🇳 प्रधानमंत्री ने नई योजना की घोषणा की | दिल्ली में बड़ी बैठक | किसानों के लिए राहत पैकेज | 🇮🇳</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gray-900 text-white">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fdfd5ed8-5063-4708-9ceb-ad2ffdff7612.png" alt="Indian Parliament building with national flag flying proudly during sunset" class="w-full h-96 object-cover" />
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center px-4">
+                <h2 class="text-4xl md:text-6xl font-bold mb-4 hindi-text">ताजा खबरें हर पल</h2>
+                <p class="text-xl mb-8 hindi-text">देश और दुनिया की सबसे ताजा और विश्वसनीय खबरें</p>
+                <button class="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-full font-semibold transition duration-300 hindi-text">
+                    पढ़िए अभी
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Featured News -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 hindi-text flex items-center">
+                <span class="w-3 h-8 bg-orange-500 mr-3"></span>
+                विशेष खबरें
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Featured News 1 -->
+                <div class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d261c643-cdde-4604-989a-0dcce1d97572.png" alt="Indian economy growth chart showing upward trend with rupee symbols and stock market graphics" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 left-4 bg-orange-500 text-white px-3 py-1 rounded text-sm hindi-text">आर्थिक</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 hindi-text">भारतीय अर्थव्यवस्था में 8.4% की वृद्धि</h3>
+                        <p class="text-gray-600 mb-4 hindi-text">क्वार्टर के दौरान जीडीपी में रिकॉर्ड वृद्धि देखी गई, विशेषज्ञों ने भविष्य के लिए आशावाद जताया...</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 hindi-text">2 घंटे पहले</span>
+                            <button class="text-orange-500 hover:text-orange-600 hindi-text">पढ़ें अधिक →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured News 2 -->
+                <div class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f34d7af2-a32e-4ec9-aac1-330653f1350c.png" alt="Modern technology gadgets including smartphones, laptops and AI devices arranged in a creative layout" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded text-sm hindi-text">टेक्नोलॉजी</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 hindi-text">भारत में 5G तकनीक का विस्तार</h3>
+                        <p class="text-gray-600 mb-4 hindi-text">50 से अधिक शहरों में 5G नेटवर्क लॉन्च, इंटरनेट स्पीड में बड़ा सुधार होगा...</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 hindi-text">5 घंटे पहले</span>
+                            <button class="text-orange-500 hover:text-orange-600 hindi-text">पढ़ें अधिक →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured News 3 -->
+                <div class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/177f5e50-a00d-46c1-9e67-7d9025e125d7.png" alt="Cricket stadium with players in action during an intense match under stadium lights" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded text-sm hindi-text">खेल</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 hindi-text">वर्ल्ड कप की तैयारियाँ जोरों पर</h3>
+                        <p class="text-gray-600 mb-4 hindi-text">टीम इंडिया के प्रशिक्षण सत्र शुरू, कोच ने दिए महत्वपूर्ण बयान...</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 hindi-text">1 दिन पहले</span>
+                            <button class="text-orange-500 hover:text-orange-600 hindi-text">पढ़ें अधिक →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 hindi-text flex items-center">
+                <span class="w-3 h-8 bg-orange-500 mr-3"></span>
+                श्रेणियाँ
+            </h2>
+            <div class="flex flex-wrap gap-4 mb-8">
+                <button class="category-tab bg-orange-500 text-white px-6 py-2 rounded-full hindi-text">सभी</button>
+                <button class="category-tab bg-gray-200 text-gray-700 px-6 py-2 rounded-full hindi-text">राजनीति</button>
+                <button class="category-tab bg-gray-200 text-gray-700 px-6 py-2 rounded-full hindi-text">खेल</button>
+                <button class="category-tab bg-gray-200 text-gray-700 px-6 py-2 rounded-full hindi-text">मनोरंजन</button>
+                <button class="category-tab bg-gray-200 text-gray-700 px-6 py-2 rounded-full hindi-text">टेक्नोलॉजी</button>
+                <button class="category-tab bg-gray-200 text-gray-700 px-6 py-2 rounded-full hindi-text">व्यापार</button>
+            </div>
+
+            <!-- Latest News Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="news-grid">
+                <!-- News items will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Weather and Stock Section -->
+        <section class="grid md:grid-cols-2 gap-8 mb-12">
+            <!-- Weather Widget -->
+            <div class="weather-card text-white rounded-lg p-6">
+                <h3 class="text-2xl font-bold mb-4 hindi-text">मौसम अपडेट</h3>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-4xl font-bold">32°C</p>
+                        <p class="text-lg hindi-text">दिल्ली</p>
+                        <p class="text-sm hindi-text">आंशिक रूप से बादल</p>
+                    </div>
+                    <i class="fas fa-sun text-5xl text-yellow-300"></i>
+                </div>
+                <div class="grid grid-cols-3 gap-4 mt-6">
+                    <div class="text-center">
+                        <p class="text-sm hindi-text">मुंबई</p>
+                        <p class="font-bold">30°C</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-sm hindi-text">चेन्नई</p>
+                        <p class="font-bold">34°C</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-sm hindi-text">बेंगलुरु</p>
+                        <p class="font-bold">28°C</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stock Market -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 hindi-text">शेयर बाजार</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="hindi-text">सेंसेक्स</span>
+                        <span class="text-green-500 font-bold">+1.2%</span>
+                        <span>72,450.65</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="hindi-text">निफ्टी</span>
+                        <span class="text-green-500 font-bold">+0.8%</span>
+                        <span>21,980.30</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="hindi-text">रुपया</span>
+                        <span class="text-red-500 font-bold">-0.3%</span>
+                        <span>83.15/$</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4 hindi-text">न्यूज़ नेक्टर 24x</h4>
+                    <p class="text-gray-400 hindi-text">विश्वसनीय खबरों का सबसे तेज़ स्रोत</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 hindi-text">लिंक्स</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white hindi-text">मुखपृष्ठ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white hindi-text">ताजा खबरें</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white hindi-text">वीडियो</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white hindi-text">संपर्क</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 hindi-text">श्रेणियाँ</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white hindi-text">राजनीति</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white hindi-text">खेल</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white hindi-text">मनोरंजन</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white hindi-text">टेक्नोलॉजी</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 hindi-text">संपर्क करें</h4>
+                    <div class="space-y-2">
+                        <p class="text-gray-400 hindi-text">info@newsnector24x.com</p>
+                        <p class="text-gray-400 hindi-text">+91 9876543210</p>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400 hindi-text">© 2024 न्यूज़ नेक्टर 24x. सभी अधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample news data
+        const newsData = [
+            {
+                title: "राजनीतिक बैठक में बड़े फैसले",
+                category: "राजनीति",
+                time: "3 घंटे पहले",
+                image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/00606001-4471-4413-bf87-f7170d6e8b1c.png"
+            },
+            {
+                title: "बॉलीवुड में नई फिल्मों की धूम",
+                category: "मनोरंजन",
+                time: "6 घंटे पहले",
+                image: "https://placehold.co/400x300"
+            },
+            {
+                title: "नई टेक्नोलॉजी से बदलता भारत",
+                category: "टेक्नोलॉजी",
+                time: "1 दिन पहले",
+                image: "https://placehold.co/400x300"
+            },
+            {
+                title: "शेयर बाजार में उछाल जारी",
+                category: "व्यापार", 
+                time: "2 दिन पहले",
+                image: "https://placehold.co/400x300"
+            },
+            {
+                title: "क्रिकेट टीम की नई जर्सी लॉन्च",
+                category: "खेल",
+                time: "4 घंटे पहले",
+                image: "https://placehold.co/400x300"
+            }
+        ]
